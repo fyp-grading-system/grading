@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Document
-public class Verdict {
+public class TeamGrade {
   @Id
   private String id;
   private String teamId;
