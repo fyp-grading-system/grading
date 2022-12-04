@@ -12,6 +12,6 @@ public interface GradingCrudRepository extends ReactiveCrudRepository<TeamGrade,
     return Uni.createFrom().future(save(grades).toFuture());
   }
 
-  @Query("{ 'squadId': ?0 }")
+  @Query("{ 'teamId': ?0 }")
   Uni<List<TeamGrade>> getByTeamId(String id);
 }

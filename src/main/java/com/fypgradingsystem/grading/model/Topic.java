@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @Document
 public class Topic {
-
   @Id
   private String id;
   private String name;

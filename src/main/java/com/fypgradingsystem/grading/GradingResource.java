@@ -2,8 +2,11 @@ package com.fypgradingsystem.grading;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +49,8 @@ public class GradingResource {
   }
 
   @PostMapping("topics/delete/{id}")
-  public Uni<Void> deleteTopic(@RequestParam String id) {
+  public Uni<Void> deleteTopic(@PathVariable("id") String id) {
+    System.out.println(id);
     return topicRepository.deleteTopic(id);
   }
 
@@ -56,7 +60,7 @@ public class GradingResource {
   }
 
   @GetMapping("team-grades/{teamId}")
-  public Uni<List<TeamGrade>> getAllTeamGrades(@RequestParam("teamId") String teamId) {
+  public Uni<List<TeamGrade>> getAllTeamGrades(@PathVariable("teamId") String teamId) {
     return repository.getSquadTeamGrades(teamId);
   }
 }
